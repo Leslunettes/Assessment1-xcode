@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		D5FEAECA1FA2980900BC5AD3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5FEAEC91FA2980900BC5AD3 /* main.cpp */; };
+		D5FEAEE21FA2981A00BC5AD3 /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = D5FEAED01FA2981800BC5AD3 /* makefile */; };
+		D5FEAEE31FA2981A00BC5AD3 /* Automaton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5FEAED11FA2981800BC5AD3 /* Automaton.cpp */; };
+		D5FEAEE41FA2981A00BC5AD3 /* ModelState.o in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FEAED31FA2981800BC5AD3 /* ModelState.o */; };
+		D5FEAEE51FA2981A00BC5AD3 /* Transition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5FEAED61FA2981900BC5AD3 /* Transition.cpp */; };
+		D5FEAEE61FA2981A00BC5AD3 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5FEAED71FA2981900BC5AD3 /* State.cpp */; };
+		D5FEAEE71FA2981A00BC5AD3 /* State.o in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FEAED91FA2981900BC5AD3 /* State.o */; };
+		D5FEAEE81FA2981A00BC5AD3 /* ModelAutomaton.o in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FEAEDA1FA2981900BC5AD3 /* ModelAutomaton.o */; };
+		D5FEAEE91FA2981A00BC5AD3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5FEAEDC1FA2981900BC5AD3 /* main.cpp */; };
+		D5FEAEEA1FA2981A00BC5AD3 /* Transition.o in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FEAEDE1FA2981900BC5AD3 /* Transition.o */; };
+		D5FEAEEB1FA2981A00BC5AD3 /* Automaton.o in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FEAEE01FA2981A00BC5AD3 /* Automaton.o */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +35,24 @@
 /* Begin PBXFileReference section */
 		D5FEAEC61FA2980900BC5AD3 /* Assessment1-xcode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Assessment1-xcode"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5FEAEC91FA2980900BC5AD3 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D5FEAED01FA2981800BC5AD3 /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
+		D5FEAED11FA2981800BC5AD3 /* Automaton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Automaton.cpp; sourceTree = "<group>"; };
+		D5FEAED21FA2981800BC5AD3 /* Automaton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Automaton.h; sourceTree = "<group>"; };
+		D5FEAED31FA2981800BC5AD3 /* ModelState.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = ModelState.o; sourceTree = "<group>"; };
+		D5FEAED41FA2981800BC5AD3 /* ModelAutomaton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelAutomaton.h; sourceTree = "<group>"; };
+		D5FEAED51FA2981800BC5AD3 /* main */ = {isa = PBXFileReference; lastKnownFileType = file; path = main; sourceTree = "<group>"; };
+		D5FEAED61FA2981900BC5AD3 /* Transition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Transition.cpp; sourceTree = "<group>"; };
+		D5FEAED71FA2981900BC5AD3 /* State.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State.cpp; sourceTree = "<group>"; };
+		D5FEAED81FA2981900BC5AD3 /* aut.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = aut.txt; sourceTree = "<group>"; };
+		D5FEAED91FA2981900BC5AD3 /* State.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = State.o; sourceTree = "<group>"; };
+		D5FEAEDA1FA2981900BC5AD3 /* ModelAutomaton.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = ModelAutomaton.o; sourceTree = "<group>"; };
+		D5FEAEDB1FA2981900BC5AD3 /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
+		D5FEAEDC1FA2981900BC5AD3 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D5FEAEDD1FA2981900BC5AD3 /* Transition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transition.h; sourceTree = "<group>"; };
+		D5FEAEDE1FA2981900BC5AD3 /* Transition.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Transition.o; sourceTree = "<group>"; };
+		D5FEAEDF1FA2981900BC5AD3 /* hugeAutomaton.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hugeAutomaton.txt; sourceTree = "<group>"; };
+		D5FEAEE01FA2981A00BC5AD3 /* Automaton.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Automaton.o; sourceTree = "<group>"; };
+		D5FEAEE11FA2981A00BC5AD3 /* ModelState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelState.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +60,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5FEAEEA1FA2981A00BC5AD3 /* Transition.o in Frameworks */,
+				D5FEAEEB1FA2981A00BC5AD3 /* Automaton.o in Frameworks */,
+				D5FEAEE81FA2981A00BC5AD3 /* ModelAutomaton.o in Frameworks */,
+				D5FEAEE41FA2981A00BC5AD3 /* ModelState.o in Frameworks */,
+				D5FEAEE71FA2981A00BC5AD3 /* State.o in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +74,24 @@
 		D5FEAEBD1FA2980900BC5AD3 = {
 			isa = PBXGroup;
 			children = (
+				D5FEAED81FA2981900BC5AD3 /* aut.txt */,
+				D5FEAED11FA2981800BC5AD3 /* Automaton.cpp */,
+				D5FEAED21FA2981800BC5AD3 /* Automaton.h */,
+				D5FEAEE01FA2981A00BC5AD3 /* Automaton.o */,
+				D5FEAEDF1FA2981900BC5AD3 /* hugeAutomaton.txt */,
+				D5FEAED51FA2981800BC5AD3 /* main */,
+				D5FEAEDC1FA2981900BC5AD3 /* main.cpp */,
+				D5FEAED01FA2981800BC5AD3 /* makefile */,
+				D5FEAED41FA2981800BC5AD3 /* ModelAutomaton.h */,
+				D5FEAEDA1FA2981900BC5AD3 /* ModelAutomaton.o */,
+				D5FEAEE11FA2981A00BC5AD3 /* ModelState.h */,
+				D5FEAED31FA2981800BC5AD3 /* ModelState.o */,
+				D5FEAED71FA2981900BC5AD3 /* State.cpp */,
+				D5FEAEDB1FA2981900BC5AD3 /* State.h */,
+				D5FEAED91FA2981900BC5AD3 /* State.o */,
+				D5FEAED61FA2981900BC5AD3 /* Transition.cpp */,
+				D5FEAEDD1FA2981900BC5AD3 /* Transition.h */,
+				D5FEAEDE1FA2981900BC5AD3 /* Transition.o */,
 				D5FEAEC81FA2980900BC5AD3 /* Assessment1-xcode */,
 				D5FEAEC71FA2980900BC5AD3 /* Products */,
 			);
@@ -119,7 +170,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5FEAEE21FA2981A00BC5AD3 /* makefile in Sources */,
 				D5FEAECA1FA2980900BC5AD3 /* main.cpp in Sources */,
+				D5FEAEE91FA2981A00BC5AD3 /* main.cpp in Sources */,
+				D5FEAEE61FA2981A00BC5AD3 /* State.cpp in Sources */,
+				D5FEAEE51FA2981A00BC5AD3 /* Transition.cpp in Sources */,
+				D5FEAEE31FA2981A00BC5AD3 /* Automaton.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
