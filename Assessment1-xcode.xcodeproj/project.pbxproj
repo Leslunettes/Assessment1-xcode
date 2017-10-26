@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D5FEAECA1FA2980900BC5AD3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5FEAEC91FA2980900BC5AD3 /* main.cpp */; };
 		D5FEAEE21FA2981A00BC5AD3 /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = D5FEAED01FA2981800BC5AD3 /* makefile */; };
 		D5FEAEE31FA2981A00BC5AD3 /* Automaton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5FEAED11FA2981800BC5AD3 /* Automaton.cpp */; };
 		D5FEAEE41FA2981A00BC5AD3 /* ModelState.o in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FEAED31FA2981800BC5AD3 /* ModelState.o */; };
@@ -34,7 +33,6 @@
 
 /* Begin PBXFileReference section */
 		D5FEAEC61FA2980900BC5AD3 /* Assessment1-xcode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Assessment1-xcode"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5FEAEC91FA2980900BC5AD3 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D5FEAED01FA2981800BC5AD3 /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
 		D5FEAED11FA2981800BC5AD3 /* Automaton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Automaton.cpp; sourceTree = "<group>"; };
 		D5FEAED21FA2981800BC5AD3 /* Automaton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Automaton.h; sourceTree = "<group>"; };
@@ -74,6 +72,22 @@
 		D5FEAEBD1FA2980900BC5AD3 = {
 			isa = PBXGroup;
 			children = (
+				D5FEAEC81FA2980900BC5AD3 /* Assessment1-xcode */,
+				D5FEAEC71FA2980900BC5AD3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D5FEAEC71FA2980900BC5AD3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D5FEAEC61FA2980900BC5AD3 /* Assessment1-xcode */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D5FEAEC81FA2980900BC5AD3 /* Assessment1-xcode */ = {
+			isa = PBXGroup;
+			children = (
 				D5FEAED81FA2981900BC5AD3 /* aut.txt */,
 				D5FEAED11FA2981800BC5AD3 /* Automaton.cpp */,
 				D5FEAED21FA2981800BC5AD3 /* Automaton.h */,
@@ -92,23 +106,6 @@
 				D5FEAED61FA2981900BC5AD3 /* Transition.cpp */,
 				D5FEAEDD1FA2981900BC5AD3 /* Transition.h */,
 				D5FEAEDE1FA2981900BC5AD3 /* Transition.o */,
-				D5FEAEC81FA2980900BC5AD3 /* Assessment1-xcode */,
-				D5FEAEC71FA2980900BC5AD3 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		D5FEAEC71FA2980900BC5AD3 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D5FEAEC61FA2980900BC5AD3 /* Assessment1-xcode */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		D5FEAEC81FA2980900BC5AD3 /* Assessment1-xcode */ = {
-			isa = PBXGroup;
-			children = (
-				D5FEAEC91FA2980900BC5AD3 /* main.cpp */,
 			);
 			path = "Assessment1-xcode";
 			sourceTree = "<group>";
@@ -171,7 +168,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5FEAEE21FA2981A00BC5AD3 /* makefile in Sources */,
-				D5FEAECA1FA2980900BC5AD3 /* main.cpp in Sources */,
 				D5FEAEE91FA2981A00BC5AD3 /* main.cpp in Sources */,
 				D5FEAEE61FA2981A00BC5AD3 /* State.cpp in Sources */,
 				D5FEAEE51FA2981A00BC5AD3 /* Transition.cpp in Sources */,
