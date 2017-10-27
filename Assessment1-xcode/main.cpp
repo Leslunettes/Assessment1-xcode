@@ -5,7 +5,7 @@
 
 #include "ModelState.h"
 #include "ModelAutomaton.h"
-//pour git dfgsdfsfsdfsf adrien
+//pour git dfgsdfsfsdfsf adrien test
 using std::ofstream;
 using std::ifstream;
 using std::ostringstream;
