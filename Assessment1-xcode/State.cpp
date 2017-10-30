@@ -10,15 +10,20 @@ using std::endl;
 
 State::State()
 {
+	name = "";
+	// initialiser arrays
 	// implement me
 }  
 
 State::State(const string& name) {
 	// implement me
+	this->name = name;
+	// initialiser arrays
 }
 
 State::State(const State& other) {
 	// implement me
+	&name=&other.name;
 }
 
 State::State(State&& other) {
@@ -30,15 +35,16 @@ State::~State()
 	// implement me
 }
 
-void State::setName(const string& name) 
+void State::setName(const string& name)
 {
-	// implement me
+	this->name=name;
+
 }
 
-string State::getName() const 
+string State::getName() const
 {
 	// implement me
-  return "";
+  return name;
 }
 
 bool State::addTransition(Transition* trans) 

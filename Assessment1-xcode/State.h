@@ -139,6 +139,10 @@ public:
 
 private:
   // Add private Data members (and private functions)
+
+  string name;
+  Transition array1[];
+  string array2[];
 };
 
 #endif
