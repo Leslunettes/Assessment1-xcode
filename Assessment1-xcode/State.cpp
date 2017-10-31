@@ -70,9 +70,12 @@ bool State::getTransition(int location, const Transition*& result) const
     return false;
 }
 
-int State::numberOfTransitions() const 
+int State::numberOfTransitions() const
 {
-	// implement me
+    int counter = 0;
+    while (<#condition#>) {
+        <#statements#>
+    }
   return -1;
 }
 
