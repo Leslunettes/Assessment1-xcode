@@ -11,17 +11,21 @@
 
 Automaton::Automaton() 
 {
-	// implement me
+    name = "";
+    //initialiser les tableaux
 }
 
 Automaton::Automaton(const std::string& name)
 {
 	// implement me
+    this->name = name;
+    //initialiser les tableaux
 }
 
 Automaton::Automaton(const Automaton& other) 
 {
 	// implement me
+
 }
 
 Automaton::Automaton(Automaton&& other)
@@ -37,12 +41,13 @@ Automaton::~Automaton()
 void Automaton::setName(const std::string& name)
 {
 	// implement me
+        this->name = name;
 }
 
 std::string Automaton::getName() const
 {
-	// implement me
-	return "";
+	
+	return name;
 }
 
 bool Automaton::addState(const std::string& stateName, State*& state)

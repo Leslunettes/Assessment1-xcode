@@ -100,8 +100,8 @@ public:
   bool getTransition(int, Transition*&);
   bool getTransition(int, const Transition*&) const;
 
-
-  // Add a label to the state if does not exist
+    
+    // Add a label to the state if does not exist
   // On successful addition returns true.
   // Add the new transition to the end of the array
   bool addLabel(const std::string&);
@@ -136,13 +136,16 @@ public:
   // output the state to the stream
   // This function is already implemented
   friend std::ostream& operator<<(std::ostream&,const State&);
-
+    
 private:
   // Add private Data members (and private functions)
-
-  string name;
-  Transition array1[];
-  string array2[];
+// Constante à voir !
+   
+    const int SIZETRANSITIONS = 42;
+    const int SIZEOFLABELS = 42;
+    std::string name;
+    Transition arrayOfTransitions[SIZETRANSITIONS];
+    std::string arrayOfLabels[SIZEOFLABELS];
 };
 
 #endif

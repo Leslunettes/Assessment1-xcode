@@ -145,6 +145,11 @@ public :
 
 private:
 	// Add private data members (and private member functions)
+    
+    //Quelle taille pour les tableaux?
+    std::string name;
+    Transition arrayOfTransitions[NULL];
+    State arrayOfStates[NULL];
 };
 
 #endif

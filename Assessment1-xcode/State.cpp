@@ -23,7 +23,7 @@ State::State(const string& name) {
 
 State::State(const State& other) {
 	// implement me
-	&name=&other.name;
+	&name = &other.name;
 }
 
 State::State(State&& other) {
@@ -79,27 +79,54 @@ bool State::getTransition(int location, const Transition*& result) const
 int State::numberOfTransitions() const
 {
     int counter = 0;
-    while (<#condition#>) {
-        <#statements#>
+    // Valeur à vérifier
+    for (int i = 0; i<SIZETRANSITIONS;i++){
+        while (arrayOfTransitions !=0){
+            counter ++;
+        }
     }
-  return -1;
+  return counter;
 }
 
 bool State::addLabel(const string& label) 
 {
-	// implement me
-  return false;
+    
+    int position = 0;
+    while (arrayOfLabels == 0) {
+        position++;
+    }
+    if (position== SIZEOFLABELS){
+        arrayOfLabels [position]= label;
+        return true;
+    }
+    return false;
 }
 
 int State::numberOfLabels() const
 {
-	// implement me
-  return -1;
+    int counter = 0;
+    // Valeur à vérifier
+    for (int i = 0; i<SIZEOFLABELS;i++){
+        // par quelle string le tableau arrayOfLabel est il initialisatier ? 0 est un int !
+        while (arrayOfLabels !=0){
+            counter ++;
+        }
+    }
+    return counter;
 }
 
 bool State::getLabel(int location, string& label) const
 {
-	// implement me
+    if (location > 0 && location < SIZETRANSITIONS){
+        // valeur 0 également à vérifier
+        if (arrayOfLabels[location] == 0){
+            arrayOfLabels[location]= label;
+            return true;
+        }else {
+            return arrayOfLabels [location];
+            // pour on retourne un label et pas un bool?
+        }
+    }
     return false;
 }
 
