@@ -11,6 +11,10 @@ using std::endl;
 State::State()
 {
 	name = "";
+
+	arrayOfTransitions = new Transition[SIZETRANSITIONS];
+	arrayOfLabels = new string[SIZEOFLABELS];
+
 	// initialiser arrays
 	// implement me
 }  
@@ -23,7 +27,8 @@ State::State(const string& name) {
 
 State::State(const State& other) {
 	// implement me
-	&name = &other.name;
+	&this->name = &other.name;
+
 }
 
 State::State(State&& other) {

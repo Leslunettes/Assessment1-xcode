@@ -139,11 +139,13 @@ public:
     
 private:
   // Add private Data members (and private functions)
-// Constante à voir !
+// Constante à voir  et ne pas les mettre ici !
    
     const int SIZETRANSITIONS = 42;
     const int SIZEOFLABELS = 42;
     std::string name;
+
+    // ou passer par des pointeurs
     Transition arrayOfTransitions[SIZETRANSITIONS];
     std::string arrayOfLabels[SIZEOFLABELS];
 };
