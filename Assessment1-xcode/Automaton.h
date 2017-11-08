@@ -32,6 +32,8 @@ class State;
 
 class Automaton { 
 public : 
+	const int INITSIZETRANSITIONS = 5;
+	const int INITSIZEOFSTATES = 5;
 	// Default constructor
 	// Initialize the name to ""
 	// Initialize the arrays to empty
@@ -145,11 +147,15 @@ public :
 
 private:
 	// Add private data members (and private member functions)
+
+    std::string automatonName;
+    Transition* arrayOfTransitions;
+    State* arrayOfStates;
     
-    //Quelle taille pour les tableaux?
-    std::string name;
-    Transition arrayOfTransitions[NULL];
-    State arrayOfStates[NULL];
+	int numberStates;
+	int numberTransitions;
+	int capacityOfState;
+	int capacityOfTransitions;
 };
 
 #endif

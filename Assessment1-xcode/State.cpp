@@ -44,11 +44,11 @@ State::State(const State& other) {
 
 State::State(State&& other) :
 		stateName { other.stateName }, arrayOfTransitions {
-				other.arrayOfTransitions }, arrayOfLabels {
-				other.INITSIZEOFLABELS }, numberLabels { other.numberLabels }, numberTransitions {
-				other.numberTransitions }, capacityOfLabels {
-				other.capacityOfLabels }, capacityOfTransitions {
-				other.capacityOfTransitions } {
+				other.arrayOfTransitions }, arrayOfLabels { other.arrayOfLabels }, numberLabels {
+				other.numberLabels }, numberTransitions {
+				other.numberTransitions }, capacityOfTransitions {
+					other.capacityOfTransitions}, capacityOfLabels {
+				other.capacityOfLabels } {
 	other.stateName = "";
 	other.arrayOfTransitions = nullptr;
 	other.arrayOfLabels = nullptr;
@@ -104,7 +104,6 @@ bool State::getTransition(int location, const Transition*& result) const {
 int State::numberOfTransitions() const {
 	return numberTransitions;
 }
-
 
 bool State::addLabel(const string& label) {
 	for (int i = 0; i < numberLabels; i++) {
@@ -168,38 +167,37 @@ State& State::operator=(const State& other) {
 }
 
 State& State::operator=(State&& other) {
-	{
-		if (this != other) {
-			string* temps { arrayOfLabels };
-			arrayOfLabels = other.arrayOfLabels;
-			other.arrayOfLabels = temps;
+	if (this != &other) {
+		string* temps { arrayOfLabels };
+		arrayOfLabels = other.arrayOfLabels;
+		other.arrayOfLabels = temps;
 
-			Transition* tempt { arrayOfTransitions };
-			arrayOfTransitions = other.arrayOfTransitions;
-			other.arrayOfTransitions = tempt;
+		Transition* tempt { arrayOfTransitions };
+		arrayOfTransitions = other.arrayOfTransitions;
+		other.arrayOfTransitions = tempt;
 
-			string tempn { stateName };
-			stateName = other.stateName;
-			other.stateName = tempn;
+		string tempn { stateName };
+		stateName = other.stateName;
+		other.stateName = tempn;
 
-			int tempnl { numberLabels };
-			numberLabels = other.numberLabels;
-			other.numberLabels = tempnl;
+		int tempnl { numberLabels };
+		numberLabels = other.numberLabels;
+		other.numberLabels = tempnl;
 
-			int tempnt { numberTransitions };
-			numberTransitions = other.numberTransitions;
-			other.numberTransitions = tempnt;
+		int tempnt { numberTransitions };
+		numberTransitions = other.numberTransitions;
+		other.numberTransitions = tempnt;
 
-			int tempcl { capacityOfLabels };
-			capacityOfLabels = other.capacityOfLabels;
-			other.capacityOfLabels = tempcl;
+		int tempcl { capacityOfLabels };
+		capacityOfLabels = other.capacityOfLabels;
+		other.capacityOfLabels = tempcl;
 
-			int tempct { capacityOfTransitions };
-			capacityOfTransitions = other.capacityOfTransitions;
-			other.capacityOfTransitions = tempct;
+		int tempct { capacityOfTransitions };
+		capacityOfTransitions = other.capacityOfTransitions;
+		other.capacityOfTransitions = tempct;
 
-		}
 	}
+
 	return *this;
 }
 
