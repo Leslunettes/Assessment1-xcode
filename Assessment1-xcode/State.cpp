@@ -73,7 +73,7 @@ void State::setName(const string& name) {
 }
 
 string State::getName() const {
-	return "";
+	return stateName;
 }
 
 bool State::addTransition(Transition* trans) {
