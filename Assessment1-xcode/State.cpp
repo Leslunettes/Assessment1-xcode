@@ -8,174 +8,240 @@ using std::string;
 using std::ostream;
 using std::endl;
 
-State::State()
-{
-	name = "";
+State::State() :
+		stateName { "" }, arrayOfLabels { nullptr }, arrayOfTransitions {
+				nullptr }, numberLabels { 0 }, numberTransitions { 0 }, capacityOfLabels {
+				INITSIZEOFLABELS }, capacityOfTransitions { INITSIZETRANSITIONS } {
+	arrayOfTransitions = new Transition[capacityOfTransitions];
+	arrayOfLabels = new string[capacityOfLabels];
+}
 
-	arrayOfTransitions = new Transition[SIZETRANSITIONS];
-	arrayOfLabels = new string[SIZEOFLABELS];
-
-	// initialiser arrays
-	// implement me
-}  
-
-State::State(const string& name) {
-	// implement me
-	this->name = name;
-	// initialiser arrays
+State::State(const string& name) :
+		stateName { name }, arrayOfLabels { nullptr }, arrayOfTransitions {
+				nullptr }, numberLabels { 0 }, numberTransitions { 0 }, capacityOfLabels {
+				INITSIZEOFLABELS }, capacityOfTransitions { INITSIZETRANSITIONS } {
+	arrayOfTransitions = new Transition[capacityOfTransitions];
+	arrayOfLabels = new string[capacityOfLabels];
 }
 
 State::State(const State& other) {
+	stateName = other.stateName;
+	numberLabels = other.numberLabels;
+	numberTransitions = other.numberTransitions;
+	capacityOfLabels = other.capacityOfLabels;
+	capacityOfTransitions = other.capacityOfTransitions;
+
+	arrayOfTransitions = new Transition[capacityOfTransitions];
+	arrayOfLabels = new string[capacityOfLabels];
+
+	for (int i = 0; i < numberTransitions; i++) {
+		arrayOfTransitions[i] = other.arrayOfTransitions[i];
+	}
+	for (int j = 0; j < numberLabels; j++) {
+		arrayOfLabels[j] = other.arrayOfLabels[j];
+	}
+}
+
+State::State(State&& other) :
+		stateName { other.stateName }, arrayOfTransitions {
+				other.arrayOfTransitions }, arrayOfLabels {
+				other.INITSIZEOFLABELS }, numberLabels { other.numberLabels }, numberTransitions {
+				other.numberTransitions }, capacityOfLabels {
+				other.capacityOfLabels }, capacityOfTransitions {
+				other.capacityOfTransitions } {
+	other.stateName = "";
+	other.arrayOfTransitions = nullptr;
+	other.arrayOfLabels = nullptr;
+
+	other.numberLabels = 0;
+	other.numberTransitions = 0;
+	other.capacityOfLabels = 0;
+	other.capacityOfTransitions = 0;
+}
+
+State::~State() {
+	if (arrayOfLabels) {
+		delete[] arrayOfLabels;
+	}
+	if (arrayOfTransitions) {
+		delete[] arrayOfTransitions;
+	}
+}
+
+void State::setName(const string& name) {
+	stateName = name;
+}
+
+string State::getName() const {
+	return stateName;
+}
+
+bool State::addTransition(Transition* trans) {
 	// implement me
-	&this->name = &other.name;
-
+	return false;
 }
 
-State::State(State&& other) {
+bool State::getTransition(const string& targetStateName, Transition*& result) {
 	// implement me
+	return false;
 }
 
-State::~State() 
-{
+bool State::getTransition(const string& targetStateName,
+		const Transition*& result) const {
 	// implement me
+	return false;
 }
-
-void State::setName(const string& name)
-{
-	this->name=name;
-
-}
-
-string State::getName() const
-{
+bool State::getTransition(int location, Transition*& result) {
 	// implement me
-  return name;
+	return false;
 }
 
-bool State::addTransition(Transition* trans) 
-{
+bool State::getTransition(int location, const Transition*& result) const {
 	// implement me
-    return false;
+	return false;
 }
 
-bool State::getTransition(const string& targetStateName, Transition*& result)
-{
-	// implement me
-  return false;
+int State::numberOfTransitions() const {
+	return numberTransitions;
 }
 
-bool State::getTransition(const string& targetStateName, const Transition*& result) const
-{
-	// implement me
-  return false;
-}
-bool State::getTransition(int location, Transition*& result)
-{
-	// implement me
-    return false;
+
+bool State::addLabel(const string& label) {
+	for (int i = 0; i < numberLabels; i++) {
+		if (label == arrayOfLabels[i]) {
+			return false;
+		}
+	}
+	if (numberLabels == capacityOfLabels) {
+		capacityOfLabels *= 2;
+		string* temp = new string[capacityOfLabels];
+		for (int i = 0; i < numberLabels; i++) {
+			temp[i] = arrayOfLabels[i];
+		}
+		delete[] arrayOfLabels;
+		arrayOfLabels = temp;
+	}
+	arrayOfLabels[numberLabels] = label;
+	numberLabels++;
+	return true;
 }
 
-bool State::getTransition(int location, const Transition*& result) const
-{
-	// implement me
-    return false;
+int State::numberOfLabels() const {
+	return numberLabels;
 }
 
-int State::numberOfTransitions() const
-{
-    int counter = 0;
-    // Valeur à vérifier
-    for (int i = 0; i<SIZETRANSITIONS;i++){
-        while (arrayOfTransitions !=0){
-            counter ++;
-        }
-    }
-  return counter;
+//on fait un set et pas un get
+bool State::getLabel(int location, string& label) const {
+	if (location >= 0 && location < numberLabels) {
+		// a verifier
+		arrayOfLabels[location] = label;
+	} else {
+		return false;
+	}
 }
 
-bool State::addLabel(const string& label) 
-{
-    
-    int position = 0;
-    while (arrayOfLabels == 0) {
-        position++;
-    }
-    if (position== SIZEOFLABELS){
-        arrayOfLabels [position]= label;
-        return true;
-    }
-    return false;
+State& State::operator=(const State& other) {
+	if (this != &other) {
+		if (arrayOfLabels)
+			delete[] arrayOfLabels;
+		if (arrayOfTransitions)
+			delete[] arrayOfTransitions;
+
+		stateName = other.stateName;
+		numberLabels = other.numberLabels;
+		numberTransitions = other.numberTransitions;
+		capacityOfLabels = other.capacityOfLabels;
+		capacityOfTransitions = other.capacityOfTransitions;
+
+		arrayOfTransitions = new Transition[capacityOfTransitions];
+		arrayOfLabels = new string[capacityOfLabels];
+
+		for (int i = 0; i < numberTransitions; i++) {
+			arrayOfTransitions[i] = other.arrayOfTransitions[i];
+		}
+		for (int j = 0; j < numberLabels; j++) {
+			arrayOfLabels[j] = other.arrayOfLabels[j];
+		}
+	}
+	return *this;
+
 }
 
-int State::numberOfLabels() const
-{
-    int counter = 0;
-    // Valeur à vérifier
-    for (int i = 0; i<SIZEOFLABELS;i++){
-        // par quelle string le tableau arrayOfLabel est il initialisatier ? 0 est un int !
-        while (arrayOfLabels !=0){
-            counter ++;
-        }
-    }
-    return counter;
-}
+State& State::operator=(State&& other) {
+	{
+		if (this != other) {
+			string* temps { arrayOfLabels };
+			arrayOfLabels = other.arrayOfLabels;
+			other.arrayOfLabels = temps;
 
-bool State::getLabel(int location, string& label) const
-{
-    if (location > 0 && location < SIZETRANSITIONS){
-        // valeur 0 également à vérifier
-        if (arrayOfLabels[location] == 0){
-            arrayOfLabels[location]= label;
-            return true;
-        }else {
-            return arrayOfLabels [location];
-            // pour on retourne un label et pas un bool?
-        }
-    }
-    return false;
-}
+			Transition* tempt { arrayOfTransitions };
+			arrayOfTransitions = other.arrayOfTransitions;
+			other.arrayOfTransitions = tempt;
 
-State& State::operator=(const State& other)
-{
-	// implement me
-	State removeMe;
-	return removeMe;
-}
+			string tempn { stateName };
+			stateName = other.stateName;
+			other.stateName = tempn;
 
-State& State::operator=(State&& other)
-{
-	// implement me
-	State removeMe;
-	return removeMe;
+			int tempnl { numberLabels };
+			numberLabels = other.numberLabels;
+			other.numberLabels = tempnl;
+
+			int tempnt { numberTransitions };
+			numberTransitions = other.numberTransitions;
+			other.numberTransitions = tempnt;
+
+			int tempcl { capacityOfLabels };
+			capacityOfLabels = other.capacityOfLabels;
+			other.capacityOfLabels = tempcl;
+
+			int tempct { capacityOfTransitions };
+			capacityOfTransitions = other.capacityOfTransitions;
+			other.capacityOfTransitions = tempct;
+
+		}
+	}
+	return *this;
 }
 
 bool State::operator==(const State& other) const {
-	// implement me
-    return false;
+	if (stateName == other.stateName) {
+		for (int i = 0; i < numberLabels; i++) {
+			if (numberLabels == other.numberLabels
+					&& arrayOfLabels[i] == other.arrayOfLabels[i]) {
+				for (int j = 0; j < numberTransitions; j++) {
+					if (numberTransitions == other.numberTransitions
+							&& arrayOfTransitions[j]
+									== other.arrayOfTransitions[j]) {
+						return true;
+					}
+				}
+
+			}
+		}
+
+	}
+	return false;
 }
 
-void State::print(ostream& stream) const
-{
-  bool first = true;
-  stream << getName() << "(";
- 
-  for (int i=0 ; i<this->numberOfLabels() ; i++) {
-    if (first) {
-      first = false;
-    }
-    else {
-      stream << ",";
-    }
-    string s;
-    getLabel(i,s);
-    stream << s;
-  }
-  stream << ")";
+void State::print(ostream& stream) const {
+	bool first = true;
+	stream << getName() << "(";
+
+	for (int i = 0; i < this->numberOfLabels(); i++) {
+		if (first) {
+			first = false;
+		} else {
+			stream << ",";
+		}
+		string s;
+		getLabel(i, s);
+		stream << s;
+	}
+	stream << ")";
 }
 
-ostream& operator<< (ostream& stream, const State& st) 
-{
-  st.print(stream);
-  return stream;
+ostream& operator<<(ostream& stream, const State& st) {
+	st.print(stream);
+	return stream;
 }
 

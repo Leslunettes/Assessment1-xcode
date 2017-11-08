@@ -12,6 +12,8 @@
 #ifndef STATE
 #define STATE 1
 
+using std::string;
+
 #include "Transition.h"
 
 class Transition;
@@ -42,112 +44,114 @@ class Transition;
 
 class State {
 public:
-  // Default constructor.
-  // Name is initialized to "".
-  // Arrays are initialized as empty.
-  State();
 
-  // Creates a state and initializes its name to the string
-  // in parameter.
-  // Arrays are initialized as empty.
-  State(const std::string&);
+	const int INITSIZETRANSITIONS = 5;
+	const int INITSIZEOFLABELS = 5;
+	// Default constructor.
+	// Name is initialized to "".
+	// Arrays are initialized as empty.
+	State();
 
-  // Copy constructor.
-  // Copies the labels from the other state.
-  // Do *NOT* copy the actual transitions of the other state;
-  // copy the same pointer addresses to the new State.
-  State(const State&);
-  // Move constructor.
-  State(State&&);
+	// Creates a state and initializes its name to the string
+	// in parameter.
+	// Arrays are initialized as empty.
+	State(const std::string&);
 
-  // Releases all memory allocated by the class
-  ~State();
+	// Copy constructor.
+	// Copies the labels from the other state.
+	// Do *NOT* copy the actual transitions of the other state;
+	// copy the same pointer addresses to the new State.
+	State(const State&);
+	// Move constructor.
+	State(State&&);
 
-  // Set the name of the State to the name in parameter
-  void setName(const std::string&);
-  // Return the name of the STate
-  std::string getName() const;
+	// Releases all memory allocated by the class
+	~State();
 
-  // Checks that the transition leaves this state
-  // If the transition does not start from this state
-  // or a transition to the target state already exists 
-  // returns false.
-  // Otherwise, adds the transition at the end of the array and returns
-  // true.
-  bool addTransition(Transition*);
+	// Set the name of the State to the name in parameter
+	void setName(const std::string&);
+	// Return the name of the STate
+	std::string getName() const;
 
-  // Searches for a transition leading to a state
-  // of the name in parameter.
-  // If found sets the pointer reference in parameter
-  // to that transition and returns true.
-  // Otherwise returns false.
-  //
-  // There are two versions one working on
-  // normal State one working on const State.
-  bool getTransition(const std::string&, Transition*&);
-  bool getTransition(const std::string&, const Transition*&) const;
+	// Checks that the transition leaves this state
+	// If the transition does not start from this state
+	// or a transition to the target state already exists
+	// returns false.
+	// Otherwise, adds the transition at the end of the array and returns
+	// true.
+	bool addTransition(Transition*);
 
-  // Return the number of transitions
-  int numberOfTransitions() const;
+	// Searches for a transition leading to a state
+	// of the name in parameter.
+	// If found sets the pointer reference in parameter
+	// to that transition and returns true.
+	// Otherwise returns false.
+	//
+	// There are two versions one working on
+	// normal State one working on const State.
+	bool getTransition(const std::string&, Transition*&);
+	bool getTransition(const std::string&, const Transition*&) const;
 
-  // Get the i-th transition in the array.
-  // If the int parameter is out of bound return false.
-  // Otherwise set the pointer reference in parameter to the
-  // i-th transition and return true
-  //
-  // Again, two versions one for State and one for
-  // const State.
-  bool getTransition(int, Transition*&);
-  bool getTransition(int, const Transition*&) const;
+	// Return the number of transitions
+	int numberOfTransitions() const;
 
-    
-    // Add a label to the state if does not exist
-  // On successful addition returns true.
-  // Add the new transition to the end of the array
-  bool addLabel(const std::string&);
+	// Get the i-th transition in the array.
+	// If the int parameter is out of bound return false.
+	// Otherwise set the pointer reference in parameter to the
+	// i-th transition and return true
+	//
+	// Again, two versions one for State and one for
+	// const State.
+	bool getTransition(int, Transition*&);
+	bool getTransition(int, const Transition*&) const;
 
-  // Return the number of labels
-  int numberOfLabels() const;
+	// Add a label to the state if does not exist
+	// On successful addition returns true.
+	// Add the new transition to the end of the array
+	bool addLabel(const std::string&);
 
-  // Return the label in the i-th location/
-  // If the location is invalid return false.
-  // Otherwise set the string to the label and return
-  // true
-  bool getLabel(int, std::string&) const;
+	// Return the number of labels
+	int numberOfLabels() const;
 
-  // Copy and move assignment operators
-  //
-  // The same comment about Transition pointers:
-  // just copy the pointers to Transitions from the other State
-  State& operator=(const State&);
-  State& operator=(State&&);
+	// Return the label in the i-th location/
+	// If the location is invalid return false.
+	// Otherwise set the string to the label and return
+	// true
+	bool getLabel(int, std::string&) const;
 
-  // Check that the state is identical to the state in parameter:
-  // 1. Same name
-  // 2. Same labels
-  // 3. Same transitions: transitions lead to the same states according
-  //    to names of target states. Order of transitions matters.
-  bool operator==(const State&) const;
+	// Copy and move assignment operators
+	//
+	// The same comment about Transition pointers:
+	// just copy the pointers to Transitions from the other State
+	State& operator=(const State&);
+	State& operator=(State&&);
 
-  // Output the state to the stream
-  // This function is already implemented
-  void print(std::ostream &) const;  
+	// Check that the state is identical to the state in parameter:
+	// 1. Same name
+	// 2. Same labels
+	// 3. Same transitions: transitions lead to the same states according
+	//    to names of target states. Order of transitions matters.
+	bool operator==(const State&) const;
 
-  // output the state to the stream
-  // This function is already implemented
-  friend std::ostream& operator<<(std::ostream&,const State&);
-    
+	// Output the state to the stream
+	// This function is already implemented
+	void print(std::ostream &) const;
+
+	// output the state to the stream
+	// This function is already implemented
+	friend std::ostream& operator<<(std::ostream&, const State&);
+
 private:
-  // Add private Data members (and private functions)
-// Constante à voir  et ne pas les mettre ici !
-   
-    const int SIZETRANSITIONS = 42;
-    const int SIZEOFLABELS = 42;
-    std::string name;
+	// Add private Data members (and private functions)
 
-    // ou passer par des pointeurs
-    Transition arrayOfTransitions[SIZETRANSITIONS];
-    std::string arrayOfLabels[SIZEOFLABELS];
+	string stateName;
+	Transition* arrayOfTransitions;
+	string* arrayOfLabels;
+
+	int numberLabels;
+	int numberTransitions;
+	int capacityOfLabels;
+	int capacityOfTransitions;
 };
 
 #endif
