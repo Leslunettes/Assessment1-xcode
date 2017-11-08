@@ -73,16 +73,46 @@ void State::setName(const string& name) {
 }
 
 string State::getName() const {
-	return stateName;
+	return "";
 }
 
 bool State::addTransition(Transition* trans) {
-	// implement me
-	return false;
+
+    for (int i = 0; i<numberTransitions;i++){
+        if (*trans == arrayOfTransitions[i]){
+            return false;
+        }
+    }
+    
+    if (numberTransitions == capacityOfTransitions){
+        capacityOfTransitions=capacityOfTransitions*2;
+        Transition* temp = new Transition[capacityOfTransitions];
+        for (int i = 0; i < numberTransitions;  i++) {
+            temp[i]=arrayOfTransitions[i];
+        }
+        delete [] arrayOfTransitions;
+        arrayOfTransitions=temp;
+    }
+    
+    //vraiment un pointeur?
+    arrayOfTransitions[numberTransitions] = *trans;
+    numberTransitions++;
+	return true;
 }
 
 bool State::getTransition(const string& targetStateName, Transition*& result) {
-	// implement me
+    
+    for(int i = 0; i<numberTransitions;i++){
+        Transition trans;
+        trans = arrayOfTransitions[i];
+        
+        State state;
+        //trans.getState2(state);
+        
+        state.getName();
+        
+       
+    }
 	return false;
 }
 
@@ -92,13 +122,19 @@ bool State::getTransition(const string& targetStateName,
 	return false;
 }
 bool State::getTransition(int location, Transition*& result) {
-	// implement me
+    if (location >=0 && location < numberTransitions){
+        result = &arrayOfTransitions[location];
+        return true;
+    }
 	return false;
 }
 
 bool State::getTransition(int location, const Transition*& result) const {
-	// implement me
-	return false;
+    if (location >=0 && location < numberTransitions){
+        result = &arrayOfTransitions[location];
+        return true;
+    }
+    return false;
 }
 
 int State::numberOfTransitions() const {
@@ -132,8 +168,8 @@ int State::numberOfLabels() const {
 //on fait un set et pas un get
 bool State::getLabel(int location, string& label) const {
 	if (location >= 0 && location < numberLabels) {
-		// a verifier
 		arrayOfLabels[location] = label;
+        return true;
 	} else {
 		return false;
 	}
